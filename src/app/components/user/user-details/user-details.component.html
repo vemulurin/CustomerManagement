@@ -1,0 +1,35 @@
+<form class="user-form" #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
+  <input type="hidden" name="ID" #ID="ngModel" [(ngModel)]="userService.selectedCustomer.ID">  
+  <div class="form-row">
+    <div class="form-group col-md-12">
+      <input class="form-control" name="firstName" #firstName="ngModel" [(ngModel)]="userService.selectedCustomer.FirstName"
+        placeholder="First Name" required>
+      <div class="validation-error" *ngIf="firstName.invalid && firstName.touched">This Field is Required.</div>
+    </div>
+    <div class="form-group col-md-12">
+      <input class="form-control" name="lastName" #lastName="ngModel" [(ngModel)]="userService.selectedCustomer.LastName" placeholder="Last Name"
+        required>
+      <div class="validation-error" *ngIf="lastName.invalid && lastName.touched">This Field is Required.</div>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-12">
+      <input class="form-control" name="email" #email="ngModel" [(ngModel)]="userService.selectedCustomer.Email" placeholder="Email" required>
+      <div class="validation-error" *ngIf="email.invalid && email.touched">This Field is Required.</div>
+    </div>
+  <div class="form-group col-md-12">
+      <input class="form-control" name="phone" #phone="ngModel" [(ngModel)]="userService.selectedCustomer.Phone" placeholder="Phone" required>
+      <div class="validation-error" *ngIf="phone.invalid && phone.touched">This Field is Required.</div>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-8">
+      <button [disabled]="!userForm.valid" type="submit" class="btn btn-lg btn-block btn-success">
+        <i class="fa fa-floppy-o"></i> Save</button>
+    </div>
+    <div class="form-group col-md-4">
+      <button type="button" class="btn btn-lg btn-block btn-warning" (click)="resetForm(userForm)">
+        <i class="fa fa-repeat"></i> Reset</button>
+    </div>
+  </div>
+</form>

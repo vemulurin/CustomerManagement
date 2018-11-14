@@ -1,0 +1,24 @@
+<table class="table table-sm table-hover">
+  <tr>
+    <th>ID</th>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Email</th>
+    <th>Phone</th>
+  </tr>
+  <tr *ngFor="let customer of userService.customerList">
+    <td>{{customer.ID}}</td>
+    <td>{{customer.FirstName}}</td>
+    <td>{{customer.LastName}}</td>
+    <td>{{customer.Email}}</td>
+    <td>{{customer.Phone}}</td>
+    <td>
+      <a class="btn" (click)="showForEdit(customer)">
+        <i class="fa fa-pencil-square-o"></i>
+      </a>
+      <a class="btn text-danger" (click)="onDelete(customer.ID)">
+        <i class="fa fa-trash-o"></i>
+      </a>
+    </td>
+  </tr>
+</table>
